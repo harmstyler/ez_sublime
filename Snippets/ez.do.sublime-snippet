@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[{do}
+    ${2:\{* Code Here *\}}
+{/do while ${1:<condition>}}]]></content>
+    <tabTrigger>do</tabTrigger>
+    <scope>source.tpl</scope>
+    <description>{do … while}</description>
+</snippet>
