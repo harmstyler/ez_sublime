@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[{foreach ${1:\$vars} as ${2:\$idx}=>${3:\$var}}
+	${0:{* code... *\}}
+{/foreach}]]></content>
+    <tabTrigger>foreach</tabTrigger>
+    <scope>source.tpl</scope>
+    <description>{foreach …}</description>
+</snippet>
