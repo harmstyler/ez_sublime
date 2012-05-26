@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[{for ${1:<number>} to ${2:<number>} as ${3:\$itemVar}}
+    ${4:\{* Code Here *\}}
+{/for}]]></content>
+    <tabTrigger>for</tabTrigger>
+    <scope>source.tpl</scope>
+    <description>{for …}</description>
+</snippet>
