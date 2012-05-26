@@ -21,49 +21,49 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.comment.smarty</string>
+					<string>punctuation.definition.comment.tpl</string>
 				</dict>
 			</dict>
 			<key>end</key>
 			<string>\*(?=\})</string>
 			<key>name</key>
-			<string>comment.block.smarty</string>
+			<string>comment.block.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(if|else|elseif|foreach|foreachelse|section)\b</string>
 			<key>name</key>
-			<string>keyword.control.smarty</string>
+			<string>keyword.control.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(capture|config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|literal|math|strip|rdelim|ldelim|assign|html_[a-z_]*)\b</string>
 			<key>name</key>
-			<string>support.function.built-in.smarty</string>
+			<string>support.function.built-in.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(and|or)\b</string>
 			<key>name</key>
-			<string>keyword.operator.smarty</string>
+			<string>keyword.operator.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(eq|neq|gt|lt|gte|lte|is|not|even|odd|not|mod|div|by)\b</string>
 			<key>name</key>
-			<string>keyword.operator.other.smarty</string>
+			<string>keyword.operator.other.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\|(capitalize|cat|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|escape|indent|lower|nl2br|regex_replace|replace|spacify|string_format|strip_tags|strip|truncate|upper|wordwrap)</string>
 			<key>name</key>
-			<string>support.function.variable-modifier.smarty</string>
+			<string>support.function.variable-modifier.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b[a-zA-Z]+=</string>
 			<key>name</key>
-			<string>meta.attribute.smarty</string>
+			<string>meta.attribute.tpl</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -73,7 +73,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.begin.smarty</string>
+					<string>punctuation.definition.string.begin.tpl</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -83,18 +83,18 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.end.smarty</string>
+					<string>punctuation.definition.string.end.tpl</string>
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.quoted.single.smarty</string>
+			<string>string.quoted.single.tpl</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>match</key>
 					<string>\\.</string>
 					<key>name</key>
-					<string>constant.character.escape.smarty</string>
+					<string>constant.character.escape.tpl</string>
 				</dict>
 			</array>
 		</dict>
@@ -106,7 +106,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.begin.smarty</string>
+					<string>punctuation.definition.string.begin.tpl</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -116,18 +116,18 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.end.smarty</string>
+					<string>punctuation.definition.string.end.tpl</string>
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.quoted.double.smarty</string>
+			<string>string.quoted.double.tpl</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>match</key>
 					<string>\\.</string>
 					<key>name</key>
-					<string>constant.character.escape.smarty</string>
+					<string>constant.character.escape.tpl</string>
 				</dict>
 			</array>
 		</dict>
@@ -137,13 +137,13 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.variable.smarty</string>
+					<string>punctuation.definition.variable.tpl</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(\$)Smarty\.</string>
+			<string>\b(\$)tpl\.</string>
 			<key>name</key>
-			<string>variable.other.global.smarty</string>
+			<string>variable.other.global.tpl</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -151,23 +151,23 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.variable.smarty</string>
+					<string>punctuation.definition.variable.tpl</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</string>
 			<key>name</key>
-			<string>variable.other.smarty</string>
+			<string>variable.other.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(TRUE|FALSE|true|false)\b</string>
 			<key>name</key>
-			<string>constant.language.smarty</string>
+			<string>constant.language.tpl</string>
 		</dict>
 	</array>
 	<key>scopeName</key>
-	<string>source.smarty</string>
+	<string>source.tpl</string>
 	<key>uuid</key>
 	<string>4D6BBA54-E3FC-4296-9CA1-662B2AD537C6</string>
 </dict>
