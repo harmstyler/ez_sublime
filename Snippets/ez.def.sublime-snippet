@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[{def ${1:\$var} = ${2:...}}]]></content>
+    <tabTrigger>def</tabTrigger>
+    <scope>source.tpl</scope>
+    <description>{def $var = …}</description>
+</snippet>

@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[fetch( 'content', 'list',
+        hash( 'parent_node_id', ${1:parent_node_id},
+              'sort_by', ${2:sort_by,}
+              'offset', ${3:offset,}
+              'limit', ${4:limit,} ))]]></content>
+    <tabTrigger>fetchl</tabTrigger>
+    <scope>source.tpl</scope>
+    <description>{fetch list …}</description>
+</snippet>
