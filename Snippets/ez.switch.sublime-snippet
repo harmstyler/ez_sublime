@@ -1,0 +1,13 @@
+<snippet>
+    <content><![CDATA[{switch match=${1:\$var}}
+    {case match=${2:<value>}}
+        ${3:...}
+    {/case}
+    {case}
+        ${4:...}
+    {/case}
+{/switch}]]></content>
+    <tabTrigger>switch</tabTrigger>
+    <scope>source.tpl</scope>
+    <description>{switch match=…}</description>
+</snippet>
