@@ -6,9 +6,9 @@
 	<key>fileTypes</key>
 	<array/>
 	<key>foldingStartMarker</key>
-	<string>(&lt;(?i:(head|table|tr|div|style|script|ul|ol|form|dl))\b.*?&gt;|\{\{?(if|foreach|capture|literal|foreach|php|section|strip)|\{\s*$)</string>
+	<string>(&lt;(?i:(head|header|table|tr|div|style|script|ul|ol|form|dl))\b.*?&gt;|\{\{?(if|for|foreach|capture|case|literal|foreach|switch|section|while)|\{\s*$)</string>
 	<key>foldingStopMarker</key>
-	<string>(&lt;/(?i:(head|table|tr|div|style|script|ul|ol|form|dl))&gt;|\{\{?/(if|foreach|capture|literal|foreach|php|section|strip)|(^|\s)\})</string>
+	<string>(&lt;/(?i:(head|header|table|tr|div|style|script|ul|ol|form|dl))&gt;|\{\{?/(if|for|foreach|capture|case|literal|foreach|switch|section|while)|(^|\s)\})</string>
 	<key>name</key>
 	<string>eZ Publish</string>
 	<key>patterns</key>
@@ -31,13 +31,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(if|else|elseif|foreach|foreachelse|section)\b</string>
+			<string>\b(do|if|else|elseif|for|foreach|switch|section|while)\b</string>
 			<key>name</key>
 			<string>keyword.control.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(capture|config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|literal|math|strip|rdelim|ldelim|assign|html_[a-z_]*)\b</string>
+			<string>\b(capture|config_load|counter|cycle|debug|eval|fetch|hash|include_php|include|insert|literal|math|strip_tags|rdelim|ldelim|assign|html_[a-z_]*)\b</string>
 			<key>name</key>
 			<string>support.function.built-in.tpl</string>
 		</dict>
@@ -49,13 +49,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(eq|neq|gt|lt|gte|lte|is|not|even|odd|not|mod|div|by)\b</string>
+			<string>\b(eq|ne|gt|lt|gte|lte|not|even|odd|not|mod|div|by|as)\b</string>
 			<key>name</key>
 			<string>keyword.operator.other.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\|(capitalize|cat|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|escape|indent|lower|nl2br|regex_replace|replace|spacify|string_format|strip_tags|strip|truncate|upper|wordwrap)</string>
+			<string>\|(upcase|downcase|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|escape|indent|lower|nl2br|regex_replace|replace|spacify|string_format|strip_tags|strip|truncate|upper|wordwrap)</string>
 			<key>name</key>
 			<string>support.function.variable-modifier.tpl</string>
 		</dict>
@@ -161,7 +161,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(TRUE|FALSE|true|false)\b</string>
+			<string>\b(true()|false())\b</string>
 			<key>name</key>
 			<string>constant.language.tpl</string>
 		</dict>
