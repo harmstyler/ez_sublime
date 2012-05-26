@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[TEST]]></content>
+    <tabTrigger>show</tabTrigger>
+    <scope>source.tpl</scope>
+    <description>{...|attribute(show)}</description>
+</snippet>
