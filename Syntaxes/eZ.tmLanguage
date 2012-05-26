@@ -31,13 +31,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(do|if|else|elseif|for|foreach|switch|section|while)\b</string>
+			<string>\b(case|do|if|else|elseif|for|foreach|switch|section|while)\b</string>
 			<key>name</key>
 			<string>keyword.control.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(capture|config_load|counter|cycle|debug|eval|fetch|hash|include_php|include|insert|literal|math|strip_tags|rdelim|ldelim|assign|html_[a-z_]*)\b</string>
+			<string>\b(capture|config_load|counter|cycle|debug-accumulator|debug-log|debug-timing-point|debug-trace|eval|fetch|hash|include|insert|literal|match|math|strip_tags|rdelim|ldelim|assign|html_[a-z_]*)\b</string>
 			<key>name</key>
 			<string>support.function.built-in.tpl</string>
 		</dict>
@@ -55,7 +55,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\|(upcase|downcase|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|escape|indent|lower|nl2br|regex_replace|replace|spacify|string_format|strip_tags|strip|truncate|upper|wordwrap)</string>
+			<string>\b(upcase|downcase|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|escape|indent|lower|nl2br|regex_replace|replace|spacify|string_format|strip_tags|strip|truncate|upper|wordwrap)\b</string>
 			<key>name</key>
 			<string>support.function.variable-modifier.tpl</string>
 		</dict>
@@ -143,7 +143,7 @@
 			<key>match</key>
 			<string>\b(\$)tpl\.</string>
 			<key>name</key>
-			<string>variable.other.php</string>
+			<string>variable.other.tpl</string>
 		</dict>
 		<dict>
 			<key>captures</key>
