@@ -31,7 +31,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(case|do|if|else|elseif|for|foreach|switch|section|while)\b</string>
+			<string>\b(case|def|do|if|else|elseif|for|foreach|switch|section|set-block|set|while)\b</string>
 			<key>name</key>
 			<string>keyword.control.tpl</string>
 		</dict>
@@ -55,7 +55,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(upcase|downcase|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|escape|indent|lower|nl2br|regex_replace|replace|spacify|string_format|strip_tags|strip|truncate|upper|wordwrap)\b</string>
+			<string>\b(upcase|downcase|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|escape|indent|lower|nl2br|regex_replace|replace|spacify|string_format|strip_tags|strip|trim|upper|wordwrap)\b</string>
 			<key>name</key>
 			<string>support.function.variable-modifier.tpl</string>
 		</dict>
