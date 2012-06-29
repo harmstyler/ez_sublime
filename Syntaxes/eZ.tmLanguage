@@ -37,7 +37,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(capture|config_load|counter|cycle|debug-accumulator|debug-log|debug-timing-point|debug-trace|expiry|fetch|hash|include|insert|is_set|literal|match|math|strip_tags|rdelim|ldelim|urlencode|html_[a-z_]*)\b</string>
+			<string>\b(begins_with|capture|concat|config_load|counter|cycle|debug-accumulator|debug-log|debug-timing-point|debug-trace|expiry|ezini|fetch|hash|i18n|include|insert|is_set|literal|match|math|strip_tags|rdelim|ldelim|urlencode|html_[a-z_]*)\b</string>
 			<key>name</key>
 			<string>support.function.built-in.tpl</string>
 		</dict>
@@ -49,13 +49,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(eq|ne|gt|lt|gte|lte|is_null|null|not|even|odd|not|mod|div|by|as)\b</string>
+			<string>\b(eq|ne|gt|lt|gte|lte|is_null|null|not|even|odd|not|mod|div|by|as|max)\b</string>
 			<key>name</key>
 			<string>keyword.operator.other.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(array|break|continue|datetime|downcase|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|delimiter|explode|ezimage|ezurl|ezroot|implode|indent|lower|nl2br|replace|skip|spacify|string_format|strip_tags|strip|trim|upcase|wash)\b</string>
+			<string>\b(array|attribute|break|contains|continue|datetime|downcase|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|delimiter|explode|extract|ezhttp|ezhttp_hasvariable|ezimage|ezurl|ezroot|implode|indent|lower|merge|nl2br|replace|skip|shorten|string_format|strip_tags|strip|trim|upcase|variable|wash)\b</string>
 			<key>name</key>
 			<string>support.function.variable-modifier.tpl</string>
 		</dict>
