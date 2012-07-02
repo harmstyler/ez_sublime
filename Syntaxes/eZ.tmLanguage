@@ -1,174 +1,185 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>fileTypes</key>
-	<array/>
+	<array>
+		<string>tpl</string>
+	</array>
 	<key>foldingStartMarker</key>
-	<string>(&lt;(?i:(head|header|table|tr|div|style|script|ul|ol|form|dl))\b.*?&gt;|\{\{?(if|for|foreach|capture|case|literal|foreach|switch|section|while)|\{\s*$)</string>
+	<string>.*\{(section\s.|let.*|if\s.*|foreach.+\}|for.+\}|while.+\}|switch.+\}|case.*\}|cache-block.*\}|run-once.*\}|literal.*\}|delimiter.*\}).*</string>
 	<key>foldingStopMarker</key>
-	<string>(&lt;/(?i:(head|header|table|tr|div|style|script|ul|ol|form|dl))&gt;|\{\{?/(if|for|foreach|capture|case|literal|foreach|switch|section|while)|(^|\s)\})</string>
+	<string>.*\{\/(section|let|if|elseif|foreach|for|while|switch|case|cache-block|run-once|literal|delimiter)\}.*</string>
 	<key>name</key>
-	<string>eZ Publish</string>
+	<string>eZ template</string>
 	<key>patterns</key>
 	<array>
 		<dict>
+			<key>match</key>
+			<string>\b(if|switch|case|while|for|section|section-else|else|elseif|let|def|foreach|literal)\b</string>
+			<key>name</key>
+			<string>keyword.control.eztpl</string>
+		</dict>
+		<dict>
 			<key>begin</key>
-			<string>(?&lt;=\{)\*</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.tpl</string>
-				</dict>
-			</dict>
+			<string>"</string>
 			<key>end</key>
-			<string>\*(?=\})</string>
+			<string>"</string>
 			<key>name</key>
-			<string>comment.block.tpl</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(attribute_view_gui|cache-block|case|def|do|if|else|elseif|for|foreach|node_view_gui|switch|section|set-block|set|undef|while)\b</string>
-			<key>name</key>
-			<string>keyword.control.tpl</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(begins_with|capture|concat|config_load|counter|cycle|debug-accumulator|debug-log|debug-timing-point|debug-trace|expiry|ezini|fetch|hash|i18n|include|insert|is_set|literal|match|math|strip_tags|rdelim|ldelim|urlencode|html_[a-z_]*)\b</string>
-			<key>name</key>
-			<string>support.function.built-in.tpl</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(and|or)\b</string>
-			<key>name</key>
-			<string>keyword.operator.tpl</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(eq|ne|gt|lt|gte|lte|is_null|null|not|even|odd|not|mod|div|by|as|max)\b</string>
-			<key>name</key>
-			<string>keyword.operator.other.tpl</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(array|attribute|break|contains|continue|datetime|downcase|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|delimiter|explode|extract|ezhttp|ezhttp_hasvariable|ezimage|ezurl|ezroot|implode|indent|lower|merge|nl2br|replace|skip|shorten|string_format|strip_tags|strip|trim|upcase|variable|wash)\b</string>
-			<key>name</key>
-			<string>support.function.variable-modifier.tpl</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b[a-zA-Z]+=</string>
-			<key>name</key>
-			<string>meta.attribute.tpl</string>
+			<string>string.quoted.double.eztpl</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\(\$|`|"|\|\n)</string>
+					<key>name</key>
+					<string>constant.character.escape.eztpl</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#variable</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
 			<string>'</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.tpl</string>
-				</dict>
-			</dict>
 			<key>end</key>
 			<string>'</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.tpl</string>
-				</dict>
-			</dict>
 			<key>name</key>
-			<string>string.quoted.single.tpl</string>
+			<string>string.quoted.single.eztpl</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>match</key>
 					<string>\\.</string>
 					<key>name</key>
-					<string>constant.character.escape.tpl</string>
+					<string>constant.character.escaped.untitled</string>
+				</dict>
+			</array>
+			<key>swallow</key>
+			<string>\\.</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(and|or|choose|cond|eq|gt|lt|ne|true|not|false)\b</string>
+			<key>name</key>
+			<string>keyword.operator.eztpl</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(cache-block|ldelim|rdelim|run-once|delimiter|append_block|sequence|set|set-block|undef|attribute_edit_gui|attribute_view_gui|attribute_pdf_gui|attribute_result_gui|class_attribute_edit_gui|class_attribute_view_gui|collaboration_icon|collaboration_participation_view|collaboration_simple_message_view|collaboration_view_gui|content_pdf_gui|content_version_view_gui|content_view_gui|event_edit_gui|node_view_gui|related_view_gui|shop_account_view_gui|tool_bar|fetch_alias|alias|array|array_sum|append|begins_with|compare|contains|ends_with|explode|extract|extract_left|extract_right|hash|implode|insert|merge|prepend|remove|repeat|reverse|unique|currentdate|ezhttp|ezini|ezpreference|ezsys|fetch|module_params|datetime|i18n|l10n|si|image|imagefile|texttoimage|abs|ceil|dec|div|floor|inc|max|min|mod|mul|rand|round|sub|sum|action_icon|\|attribute|classgroup_icon|content_structure_tree|ezpackage|flag_icon|gettime|icon_info|makedate|mimetype_icon|month_overview|pdf|roman|topmenu|treemenu|autolink|begins_with|break|chr|compare|concat|contains|count_chars|count_words|crc32|downcase|ends_with|explode|indent|md5|nl2br|ord|pad|prepend|rot13|shorten|simpletags|include|simplify|trim|upcase|upfirst|upword|wash|wordtoimage|wrap|exturl|ezdesign|ezimage|ezroot|ezurl|count|float|get_class|get_type|int|is_array|is_boolean|is_class|is_float|is_integer|is_null|is_numeric|is_object|is_set|is_string|is_unset)\b</string>
+			<key>name</key>
+			<string>support.function.eztpl</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\$+[a-zA-Z0-9\.-_\[\]:]*</string>
+			<key>name</key>
+			<string>variable.eztpl</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>{\*</string>
+			<key>end</key>
+			<string>\*}</string>
+			<key>name</key>
+			<string>comment.block.eztpl</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>{(literal)}</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.eztpl</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>text.html.basic.literal.eztpl</string>
+			<key>end</key>
+			<string>{/(literal)}</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>text.html.basic</string>
 				</dict>
 			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>"</string>
-			<key>beginCaptures</key>
+			<string>(?:^\s+)?&lt;((?i:style))\b(?![^&gt;]*/&gt;)</string>
+			<key>captures</key>
 			<dict>
-				<key>0</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.begin.tpl</string>
+					<string>entity.name.tag.html</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.html</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.html</string>
 				</dict>
 			</dict>
+			<key>contentName</key>
+			<string>source.css.embedded.html.eztpl</string>
 			<key>end</key>
-			<string>"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.tpl</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.double.tpl</string>
+			<string>&lt;/((?i:style))&gt;(?:\s*\n)?</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>match</key>
-					<string>\\.</string>
-					<key>name</key>
-					<string>constant.character.escape.tpl</string>
+					<key>begin</key>
+					<string>&gt;</string>
+					<key>end</key>
+					<string>(?=&lt;/(?i:style))</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.eztpl</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.variable.tpl</string>
-				</dict>
-			</dict>
 			<key>match</key>
-			<string>\b(\$)tpl\.</string>
+			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)\b</string>
 			<key>name</key>
-			<string>variable.other.tpl</string>
+			<string>constant.numeric.eztpl</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.variable.tpl</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</string>
-			<key>name</key>
-			<string>variable.other.tpl</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(true()|false())\b</string>
-			<key>name</key>
-			<string>constant.language.tpl</string>
+			<key>include</key>
+			<string>text.html.basic</string>
 		</dict>
 	</array>
+	<key>repository</key>
+	<dict>
+		<key>variable</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(\$|\%)+[a-zA-Z0-9\.-_\[\]:]*</string>
+					<key>name</key>
+					<string>variable.eztpl</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 	<key>scopeName</key>
-	<string>source.tpl</string>
+	<string>source.eztpl</string>
 	<key>uuid</key>
-	<string>4D6BBA54-E3FC-4296-9CA1-662B2AD537C6</string>
+	<string>D2F9659B-35E2-419A-BF40-068AC1F8275D</string>
 </dict>
 </plist>
