@@ -55,7 +55,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(append|array|attribute|break|contains|continue|datetime|downcase|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|delimiter|explode|extract|ezhttp|ezhttp_hasvariable|ezimage|ezurl|ezroot|implode|indent|lower|merge|nl2br|replace|skip|shorten|string_format|strip_tags|strip|trim|upcase|variable|wash|inc|sub)\b</string>
+			<string>\b(append|array|attribute|break|contains|continue|datetime|downcase|count|date_format|default|delimiter|explode|extract|ezhttp|ezhttp_hasvariable|ezimage|ezurl|ezroot|implode|indent|lower|merge|nl2br|replace|skip|shorten|string_format|strip_tags|strip|trim|upcase|variable|wash|inc|sub)\b</string>
 			<key>name</key>
 			<string>support.function.variable-modifier.tpl</string>
 		</dict>
