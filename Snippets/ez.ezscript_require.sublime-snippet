@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+{ezscript_require( array( '${1:jquery.min.js}', '${2:ezjsc::jqueryio}' ) ) }
+]]></content>
+	<tabTrigger>ezscript</tabTrigger>
+	<scope>source.tpl</scope>
+	<description>{ezscript_require( array( 'jquery.min.js', 'ezjsc::jqueryio' ) ) }</description>
+</snippet>
