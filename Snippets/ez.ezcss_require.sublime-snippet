@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+{ezcss_require( array( '${1:app.css}' ) )}
+]]></content>
+	<tabTrigger>ezcss</tabTrigger>
+	<scope>source.tpl</scope>
+	<description>{ezcss_require( array( 'app.css' ) )}</description>
+</snippet>
