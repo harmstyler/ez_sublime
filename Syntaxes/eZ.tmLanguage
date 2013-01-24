@@ -31,7 +31,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(attribute_view_gui|cache-block|case|def|do|if|else|elseif|for|foreach|node_view_gui|switch|section|set-block|set|undef|while)\b</string>
+			<string>\b(append-block|attribute_view_gui|cache-block|case|def|do|if|else|elseif|for|foreach|node_view_gui|switch|section|set-block|set|undef|while)\b</string>
 			<key>name</key>
 			<string>keyword.control.tpl</string>
 		</dict>
@@ -55,7 +55,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(append|array|attribute|break|contains|continue|datetime|downcase|count|date_format|default|delimiter|explode|extract|ezhttp|ezhttp_hasvariable|ezimage|ezurl|ezroot|float|get_class|get_type|implode|indent|int|merge|nl2br|prepend|replace|skip|shorten|string_format|strip_tags|strip|trim|upcase|variable|wash|inc|sub)\b</string>
+			<string>\b(append|array|attribute|break|contains|continue|datetime|downcase|count|date_format|default|delimiter|explode|extract|ezhttp|ezhttp_hasvariable|ezimage|ezurl|ezroot|float|get_class|get_type|implode|indent|int|merge|nl2br|prepend|replace|simplify|skip|shorten|string_format|strip_tags|strip|trim|upcase|variable|wash|inc|sub)\b</string>
 			<key>name</key>
 			<string>support.function.variable-modifier.tpl</string>
 		</dict>
