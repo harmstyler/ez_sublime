@@ -1,33 +1,64 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>fileTypes</key>
-	<array/>
+	<array>
+		<string>tpl</string>
+	</array>
 	<key>foldingStartMarker</key>
-	<string>(&lt;(?i:(head|header|table|tr|div|style|script|ul|ol|form|dl))\b.*?&gt;|\{\{?(if|for|foreach|capture|case|literal|foreach|switch|section|while)|\{\s*$)</string>
+	<string>.*\{(section\s.|let.*|if\s.*|foreach.+\}|for.+\}|while.+\}|switch.+\}|cache-block.*\}|run-once.*\}|literal.*\}|delimiter.*\}).*</string>
 	<key>foldingStopMarker</key>
-	<string>(&lt;/(?i:(head|header|table|tr|div|style|script|ul|ol|form|dl))&gt;|\{\{?/(if|for|foreach|capture|case|literal|foreach|switch|section|while)|(^|\s)\})</string>
+	<string>.*\{\/(section|let|if|elseif|foreach|for|while|switch|cache-block|run-once|literal|delimiter)\}.*</string>
 	<key>name</key>
-	<string>eZ Publish</string>
+	<string>eZ template</string>
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>begin</key>
-			<string>(?&lt;=\{)\*</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.tpl</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\*(?=\})</string>
+			<key>match</key>
+			<string>\b(as|def|else|elseif|foreach|if|switch|while|for|let|literal|section|section-else|undef)\b</string>
 			<key>name</key>
-			<string>comment.block.tpl</string>
+			<string>keyword.control.tpl</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>string.quoted.double.tpl</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\(\$|`|"|\|\n)</string>
+					<key>name</key>
+					<string>constant.character.escape.tpl</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#variable</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>end</key>
+			<string>'</string>
+			<key>name</key>
+			<string>string.quoted.single.tpl</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>constant.character.escaped.untitled</string>
+				</dict>
+			</array>
+			<key>swallow</key>
+			<string>\\.</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -37,15 +68,9 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(begins_with|capture|concat|config_load|cycle|debug-accumulator|debug-log|debug-timing-point|debug-trace|expiry|ezini|fetch|hash|i18n|include|insert|is_array|is_boolean|is_class|is_float|is_integer|is_null|is_numeric|is_object|is_set|is_string|is_unset|literal|match|math|strip_tags|rdelim|ldelim|urlencode|html_[a-z_]*)\b</string>
+			<string>\b(and|begins_with|capture|concat|config_load|cycle|debug-accumulator|debug-log|debug-timing-point|debug-trace|expiry|ezcss_load|ezcss_require|ezini|ezscript_require|ezscript_load|fetch|first_set|hash|i18n|include|insert|is_array|is_boolean|is_class|is_float|is_integer|is_null|is_numeric|is_object|is_set|is_string|is_unset|literal|match|math|or|strip_tags|rdelim|ldelim|urlencode|html_[a-z_]*)\b</string>
 			<key>name</key>
 			<string>support.function.built-in.tpl</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(and|or)\b</string>
-			<key>name</key>
-			<string>keyword.operator.tpl</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -66,109 +91,113 @@
 			<string>meta.attribute.tpl</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>'</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.tpl</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>'</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.tpl</string>
-				</dict>
-			</dict>
+			<key>match</key>
+			<string>\$+[a-zA-Z0-9\.-_\[\]:]*</string>
 			<key>name</key>
-			<string>string.quoted.single.tpl</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\\.</string>
-					<key>name</key>
-					<string>constant.character.escape.tpl</string>
-				</dict>
-			</array>
+			<string>variable.tpl</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.tpl</string>
-				</dict>
-			</dict>
+			<string>{\*</string>
 			<key>end</key>
-			<string>"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.tpl</string>
-				</dict>
-			</dict>
+			<string>\*}</string>
 			<key>name</key>
-			<string>string.quoted.double.tpl</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\\.</string>
-					<key>name</key>
-					<string>constant.character.escape.tpl</string>
-				</dict>
-			</array>
+			<string>comment.block.tpl</string>
 		</dict>
 		<dict>
+			<key>begin</key>
+			<string>{(literal)}</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.variable.tpl</string>
+					<string>keyword.control.tpl</string>
 				</dict>
 			</dict>
-			<key>match</key>
-			<string>\b(\$)tpl\.</string>
-			<key>name</key>
-			<string>variable.other.tpl</string>
+			<key>contentName</key>
+			<string>text.html.basic.literal.tpl</string>
+			<key>end</key>
+			<string>{/(literal)}</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>text.html.basic</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
+			<key>begin</key>
+			<string>(?:^\s+)?&lt;((?i:style))\b(?![^&gt;]*/&gt;)</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.variable.tpl</string>
+					<string>entity.name.tag.html</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.html</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.html</string>
 				</dict>
 			</dict>
-			<key>match</key>
-			<string>(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*?\b</string>
-			<key>name</key>
-			<string>variable.other.tpl</string>
+			<key>contentName</key>
+			<string>source.css.embedded.html.tpl</string>
+			<key>end</key>
+			<string>&lt;/((?i:style))&gt;(?:\s*\n)?</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>&gt;</string>
+					<key>end</key>
+					<string>(?=&lt;/(?i:style))</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.tpl</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(true()|false())\b</string>
+			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)\b</string>
 			<key>name</key>
-			<string>constant.language.tpl</string>
+			<string>constant.numeric.tpl</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>text.html.basic</string>
 		</dict>
 	</array>
+	<key>repository</key>
+	<dict>
+		<key>variable</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(\$|\%)+[a-zA-Z0-9\.-_\[\]:]*</string>
+					<key>name</key>
+					<string>variable.tpl</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 	<key>scopeName</key>
 	<string>source.tpl</string>
 	<key>uuid</key>
-	<string>4D6BBA54-E3FC-4296-9CA1-662B2AD537C6</string>
+	<string>D2F9659B-35E2-419A-BF40-068AC1F8275D</string>
 </dict>
 </plist>
